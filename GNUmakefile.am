@@ -1,0 +1,35 @@
+EXTRA_DIST = autogen.sh sed.1 Makefile Makefile.mk 
+
+bin_PROGRAMS = sed sed_sus sed_su3 sed_s42
+
+libuxre_prefix    = @libuxre_prefix@
+libuxre_include   = @libuxre_include@
+libuxre_lib       = @libuxre_lib@
+
+libcommon_prefix  = @libcommon_prefix@
+libcommon_include = @libcommon_include@
+libcommon_lib     = @libcommon_lib@
+
+sed_CPPFLAGS  = -I$(libcommon_include)
+sed_LDFLAGS = -L$(libcommon_lib)
+sed_LDADD   = -lcommon 
+
+sed_sus_CPPFLAGS  = -I$(libuxre_include) -DUXRE -I$(libcommon_include) -DSUS
+sed_sus_LDFLAGS = -L$(libuxre_lib) -L$(libcommon_lib)
+sed_sus_LDADD   = -luxre -lcommon 
+
+sed_su3_CPPFLAGS  = -I$(libuxre_include) -DUXRE -I$(libcommon_include) -DSU3
+sed_su3_LDFLAGS = -L$(libuxre_lib) -L$(libcommon_lib)
+sed_su3_LDADD   = -luxre -lcommon 
+
+sed_s42_CPPFLAGS  = -I$(libuxre_include) -DUXRE -I$(libcommon_include) -DS42
+sed_s42_LDFLAGS = -L$(libuxre_lib) -L$(libcommon_lib)
+sed_s42_LDADD   = -luxre -lcommon 
+
+sed_SOURCES = sed.h sed0.c sed1.c version.c
+sed_sus_SOURCES = sed.h sed0.c sed1.c version.c
+sed_su3_SOURCES = sed.h sed0.c sed1.c version.c
+sed_s42_SOURCES = sed.h sed0.c sed1.c version.c
+
+sed0.c: sed.h
+sed0.1: sed.h
