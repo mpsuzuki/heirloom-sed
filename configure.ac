@@ -1,5 +1,5 @@
 AC_PREREQ([2.62])
-AC_INIT([heirloom-sed], [0.0.20241013], [https://gitlab.com/mpsuzuki/heirloom-oawk/-/issues])
+AC_INIT([heirloom-sed], [0.0.20241013], [https://github.com/mpsuzuki/heirloom-oawk/-/issues])
 AM_INIT_AUTOMAKE([foreign])
 
 # Set default prefix
