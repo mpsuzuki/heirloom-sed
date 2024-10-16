@@ -2,13 +2,24 @@ EXTRA_DIST = autogen.sh sed.1 Makefile Makefile.mk
 
 bin_PROGRAMS = sed sed_sus sed_su3 sed_s42
 
+included_libuxre = heirloom-libuxre
+if BUILD_LIBUXRE
+  OPT_LIBUXRE = $(included_libuxre)
+endif
 libuxre_prefix    = @libuxre_prefix@
 libuxre_include   = @libuxre_include@
 libuxre_lib       = @libuxre_lib@
 
+included_libcommon = heirloom-libcommon
+if BUILD_LIBCOMMON
+  OPT_LIBCOMMON = $(included_libcommon)
+endif
 libcommon_prefix  = @libcommon_prefix@
 libcommon_include = @libcommon_include@
 libcommon_lib     = @libcommon_lib@
+
+SUBDIRS = $(OPT_LIBUXRE) $(OPT_LIBCOMMON)
+DIST_SUBDIRS = $(included_libuxre) $(included_libcommon)
 
 sed_CPPFLAGS  = -I$(libcommon_include)
 sed_LDFLAGS = -L$(libcommon_lib)
