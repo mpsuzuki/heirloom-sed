@@ -32,11 +32,11 @@ AC_CHECK_FUNC([wcwidth],[],[AC_MSG_ERROR([wcwidth() is required])])
 
 # Pack included heirloom-libXXX in make dist, subdirectories must be configured always.
 HEIRLOOM_FIND_LIBCOMMON
-AS_IF([test "x${use_included_libcommon}" = xyes],
+AS_IF([test "x${build_included_libcommon}" = xyes],
       [AC_CONFIG_SUBDIRS([heirloom-libcommon])])
 
 HEIRLOOM_FIND_LIBUXRE
-AS_IF([test "x${use_included_libuxre}" = xyes],
+AS_IF([test "x${build_included_libuxre}" = xyes],
       [AC_CONFIG_SUBDIRS([heirloom-libuxre])])
 
 AC_CONFIG_HEADERS([config.h])
