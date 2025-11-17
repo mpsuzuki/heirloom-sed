@@ -6,7 +6,7 @@ do
   (cd "$d" && ./autogen.sh)
 done
 
-aclocal -Iheirloom-libcommon -Iheirloom-libuxre
+aclocal -Iheirloom-libcommon -Iheirloom-libuxre --force
 autoheader
 automake -a
 autoconf
