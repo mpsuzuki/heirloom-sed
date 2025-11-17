@@ -30,7 +30,7 @@ then
 fi
 AC_CHECK_FUNC([wcwidth],[],[AC_MSG_ERROR([wcwidth() is required])])
 
-# Pack included heirloom-libXXX in make dist, subdirectories must be configured always.
+# Prepare heirloom-libXXX if required
 HEIRLOOM_FIND_LIBCOMMON
 AS_IF([test "x${build_included_libcommon}" = xyes],
       [AC_CONFIG_SUBDIRS([heirloom-libcommon])])
